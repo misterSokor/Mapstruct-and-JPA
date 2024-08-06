@@ -1,13 +1,11 @@
-package com.example.mapstructpractice.service.departmentImpl;
+package com.example.mapstructpractice.service.department;
 
 import java.util.List;
 import com.example.mapstructpractice.dto.department.CreateDepartmentRequestDto;
 import com.example.mapstructpractice.dto.department.DepartmentDto;
 import com.example.mapstructpractice.mapper.DepartmentMapper;
 import com.example.mapstructpractice.model.Department;
-import com.example.mapstructpractice.repository.DepartmentRepository;
-import com.example.mapstructpractice.service.DepartmentService;
-import jakarta.persistence.EntityManager;
+import com.example.mapstructpractice.repository.department.DepartmentRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

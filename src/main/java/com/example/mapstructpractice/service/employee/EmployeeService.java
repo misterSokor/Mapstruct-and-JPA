@@ -1,4 +1,4 @@
-package com.example.mapstructpractice.service;
+package com.example.mapstructpractice.service.employee;
 
 import java.util.List;
 import com.example.mapstructpractice.dto.employee.CreateEmployeeRequestDto;

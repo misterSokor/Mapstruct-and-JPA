@@ -3,7 +3,7 @@ package com.example.mapstructpractice.controller;
 import java.util.List;
 import com.example.mapstructpractice.dto.employee.CreateEmployeeRequestDto;
 import com.example.mapstructpractice.dto.employee.EmployeeDto;
-import com.example.mapstructpractice.service.EmployeeService;
+import com.example.mapstructpractice.service.employee.EmployeeService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

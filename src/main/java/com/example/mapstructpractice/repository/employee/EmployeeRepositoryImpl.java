@@ -1,9 +1,8 @@
-package com.example.mapstructpractice.repository.employeeRepositoryImpl;
+package com.example.mapstructpractice.repository.employee;
 
 import java.util.List;
 import java.util.Optional;
 import com.example.mapstructpractice.model.Employee;
-import com.example.mapstructpractice.repository.EmployeeRepository;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.EntityTransaction;
@@ -82,7 +81,7 @@ package com.example.mapstructpractice.repository.employeeRepositoryImpl;
 import java.util.List;
 import java.util.Optional;
 import com.example.mapstructpractice.model.Employee;
-import com.example.mapstructpractice.repository.EmployeeRepository;
+import com.example.mapstructpractice.repository.employee.EmployeeRepository;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.EntityTransaction;

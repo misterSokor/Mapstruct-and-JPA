@@ -1,7 +1,6 @@
-package com.example.mapstructpractice.repository;
+package com.example.mapstructpractice.repository.department;
 
 import java.util.List;
-import com.example.mapstructpractice.dto.department.CreateDepartmentRequestDto;
 import com.example.mapstructpractice.model.Department;
 
 public interface DepartmentRepository {

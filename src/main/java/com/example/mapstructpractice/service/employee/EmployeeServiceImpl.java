@@ -1,4 +1,4 @@
-package com.example.mapstructpractice.service.employeeImpl;
+package com.example.mapstructpractice.service.employee;
 
 import java.util.List;
 import java.util.Optional;
@@ -7,8 +7,7 @@ import com.example.mapstructpractice.dto.employee.CreateEmployeeRequestDto;
 import com.example.mapstructpractice.dto.employee.EmployeeDto;
 import com.example.mapstructpractice.mapper.EmployeeMapper;
 import com.example.mapstructpractice.model.Employee;
-import com.example.mapstructpractice.repository.EmployeeRepository;
-import com.example.mapstructpractice.service.EmployeeService;
+import com.example.mapstructpractice.repository.employee.EmployeeRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -64,8 +63,8 @@ import com.example.mapstructpractice.dto.employee.CreateEmployeeRequestDto;
 import com.example.mapstructpractice.dto.employee.EmployeeDto;
 import com.example.mapstructpractice.mapper.EmployeeMapper;
 import com.example.mapstructpractice.model.Employee;
-import com.example.mapstructpractice.repository.EmployeeRepository;
-import com.example.mapstructpractice.service.EmployeeService;
+import com.example.mapstructpractice.repository.employee.EmployeeRepository;
+import com.example.mapstructpractice.service.employee.EmployeeService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

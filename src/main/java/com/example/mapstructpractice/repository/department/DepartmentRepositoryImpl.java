@@ -1,8 +1,7 @@
-package com.example.mapstructpractice.repository.departmentRepositoryImpl;
+package com.example.mapstructpractice.repository.department;
 
 import java.util.List;
 import com.example.mapstructpractice.model.Department;
-import com.example.mapstructpractice.repository.DepartmentRepository;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.EntityTransaction;

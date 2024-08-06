@@ -1,10 +1,14 @@
 package com.example.mapstructpractice.model;
 
+import java.util.List;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.Data;
@@ -33,5 +37,11 @@ public class Employee {
     @Column(name = "social_security_number", unique = true)
     private String socialSecurityNumber;
 
-
+    @EqualsAndHashCode.Exclude
+    @ToString.Exclude
+    @ManyToMany
+    @JoinTable(name = "employee_skills",
+              joinColumns = @JoinColumn(name = "employee_id"),
+                inverseJoinColumns = @JoinColumn(name = "skill_id"))
+    private List<Skill> skillList;
 }
