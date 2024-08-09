@@ -7,7 +7,9 @@ import com.example.mapstructpractice.dto.employee.CreateEmployeeRequestDto;
 import com.example.mapstructpractice.dto.employee.EmployeeDto;
 import com.example.mapstructpractice.mapper.EmployeeMapper;
 import com.example.mapstructpractice.model.Employee;
+import com.example.mapstructpractice.model.Skill;
 import com.example.mapstructpractice.repository.employee.EmployeeRepository;
+import com.example.mapstructpractice.repository.skill.SkillRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -16,6 +18,7 @@ import org.springframework.stereotype.Service;
 public class EmployeeServiceImpl implements EmployeeService {
     private final EmployeeMapper mapper;
     private final EmployeeRepository repository;
+    private final SkillRepository skillRepository;
 
 
     @Override
@@ -46,7 +49,17 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Override
     public EmployeeDto save(CreateEmployeeRequestDto requestDto) {
         Employee employee = mapper.toModel(requestDto);
+
+        // Generate random social security number
         employee.setSocialSecurityNumber("abc " + (new Random().nextInt(1000)));
+
+        //TODO: try to retrieve names of skills in the mapper
+
+        // Fetch skills (for names) from repository before saving and transmit
+        // it to the mapper
+//        List<Skill> skills = skillRepository.findAllById(requestDto.skills());
+//        employee.setSkillList(skills);
+
         Employee savedEmployee = repository.save(employee);
         return mapper.toDto(savedEmployee);
     }

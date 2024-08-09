@@ -1,5 +1,6 @@
 package com.example.mapstructpractice.model;
 
+import java.util.ArrayList;
 import java.util.List;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -44,4 +45,7 @@ public class Employee {
               joinColumns = @JoinColumn(name = "employee_id"),
                 inverseJoinColumns = @JoinColumn(name = "skill_id"))
     private List<Skill> skillList;
+    //but if I need to avoid NullPointerException I have to initialize the list
+   // private List<Skill> skillList = new ArrayList<>();
+
 }

@@ -65,7 +65,9 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
     public List<Employee> findAll() {
         try (EntityManager entityManager =
                      entityManagerFactory.createEntityManager()) {
-            return entityManager.createQuery("from Employee ", Employee.class)
+            return entityManager.createQuery(
+                    "SELECT e FROM Employee e JOIN FETCH e.skillList",
+                            Employee.class)
                     .getResultList();
         } catch (RuntimeException e) {
             throw new RuntimeException("Can't get all Employees entities", e);

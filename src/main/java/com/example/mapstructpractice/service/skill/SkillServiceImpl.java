@@ -10,15 +10,17 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 
-@RequiredArgsConstructor
 @Service
-public class SkillServiceImpl implements SkillService{
+@RequiredArgsConstructor
+public class SkillServiceImpl implements SkillService {
     private final SkillRepository repository;
     private final SkillMapper mapper;
+
     @Override
     public SkillDto save(CreateSkillRequestDto requestDto) {
-         Skill skill = mapper.toModel(requestDto);
-         return mapper.toDto(repository.save(skill));
+        Skill skill = mapper.toModel(requestDto);
+        Skill saved = repository.save(skill);
+        return mapper.toDto(saved);
     }
 
     @Override

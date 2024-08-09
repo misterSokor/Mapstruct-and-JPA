@@ -20,14 +20,17 @@ package com.example.mapstructpractice.mapper;
 import com.example.mapstructpractice.config.MapperConfig;
 import com.example.mapstructpractice.dto.employee.CreateEmployeeRequestDto;
 import com.example.mapstructpractice.dto.employee.EmployeeDto;
+import com.example.mapstructpractice.dto.employee.EmployeeWithoutSkillsDto;
 import com.example.mapstructpractice.model.Employee;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
-@Mapper(config = MapperConfig.class, uses = DepartmentMapper.class)
+//@Mapper(config = MapperConfig.class, uses = DepartmentMapper.class)
 public interface EmployeeMapper {
     @Mapping(target = "employeeDepartmentId", source = "department.id")
     EmployeeDto toDto(Employee employee);
+
+    EmployeeWithoutSkillsDto toEmployeeWithoutSkillsDto(Employee employee);
 
     @Mapping(target = "department", source = "departmentId", qualifiedByName
             = "getById" )

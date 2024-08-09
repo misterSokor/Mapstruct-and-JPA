@@ -16,24 +16,7 @@ public interface DepartmentMapper {
     @Named("getById")
     default Department getById(Long id) {
         return Optional.ofNullable(id)
-                .map(Department::new)
+                .map(idValue -> new Department(idValue))
                 .orElse(null);
     }
-
-
-
-
-
-
-
-
-
-//    @Named("departmentById")
-//    default Department departmentById(Long id) {
-//       return Optional
-//               .ofNullable(id)
-//               .map(Department::new)
-//               .orElse(null);
-//    }
-
 }
