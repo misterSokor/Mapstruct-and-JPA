@@ -6,6 +6,7 @@ import com.example.mapstructpractice.model.Skill;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.EntityTransaction;
+import jakarta.persistence.Query;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
@@ -58,16 +59,32 @@ public class SkillRepositoryImpl implements SkillRepository {
     }
 
     //to fetch names of skills from the database
-//    @Override
-//    public List<Skill> findAllById(List<Long> skills) {
-//        try (EntityManager entityManager = entityManagerFactory.createEntityManager()) {
-//            return entityManager.createQuery("SELECT s FROM Skill s where s"
-//                                             + ".id in "
-//                                             + ":skills", Skill.class)
-//                    .setParameter("skills", skills)
+    @Override
+    public List<Skill> findAllById(List<Long> skills) {
+        try (EntityManager entityManager = entityManagerFactory.createEntityManager()) {
+            return entityManager
+                    .createQuery(
+                            "SELECT s FROM Skill s where s.id in :skills",
+                            Skill.class)
+                    .setParameter("skills", skills)
+                    .getResultList();
+        } catch (RuntimeException e) {
+            throw new RuntimeException("Can't get all skills entities", e);
+        }
+    }
+
+
+//    public List<String> findSkillNamesById(List<Long> ids) {
+//        try (EntityManager entityManager =
+//                     entityManagerFactory.createEntityManager()) {
+//            return entityManager
+//                    .createQuery(
+//                            "SELECT s FROM Skill snames where id IN :idOfSkill ")
+//                    .setParameter("idOfSkill", ids)
 //                    .getResultList();
+//
 //        } catch (RuntimeException e) {
-//            throw new RuntimeException("Can't get all skills entities", e);
+//            throw new RuntimeException("Can't find corresponding names", e);
 //        }
 //    }
 }

@@ -11,5 +11,5 @@ public interface SkillRepository {
 
     Optional<Skill> findById(Long id);
 
-//    List<Skill> findAllById(List<Long> skills);
+    List<Skill> findAllById(List<Long> skills);
 }

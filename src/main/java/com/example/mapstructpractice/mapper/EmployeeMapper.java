@@ -27,13 +27,13 @@ import org.mapstruct.Mapping;
 
 //@Mapper(config = MapperConfig.class, uses = DepartmentMapper.class)
 public interface EmployeeMapper {
-    @Mapping(target = "employeeDepartmentId", source = "department.id")
+//    @Mapping(target = "employeeDepartmentId", source = "department.id")
     EmployeeDto toDto(Employee employee);
 
     EmployeeWithoutSkillsDto toEmployeeWithoutSkillsDto(Employee employee);
 
-    @Mapping(target = "department", source = "departmentId", qualifiedByName
-            = "getById" )
+//    @Mapping(target = "department", source = "departmentId", qualifiedByName
+//            = "getById" )
     Employee toModel(CreateEmployeeRequestDto employeeDto);
 }
 

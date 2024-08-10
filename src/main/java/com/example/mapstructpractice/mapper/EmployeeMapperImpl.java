@@ -1,5 +1,6 @@
 package com.example.mapstructpractice.mapper;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 import com.example.mapstructpractice.dto.employee.CreateEmployeeRequestDto;
@@ -41,28 +42,28 @@ public class EmployeeMapperImpl implements EmployeeMapper {
     }
 
     // method setSkillIds using stream for Long id of skill
-    private void setSkillIds(EmployeeDto employeeDto, Employee employee) {
-        List<Long> skillIds = employee.getSkillList()
-                .stream()
-                .map(Skill::getId)
-                .collect(Collectors.toList());
-        employeeDto.setSkills(skillIds);
-    }
+//    private void setSkillIds(EmployeeDto employeeDto, Employee employee) {
+//        List<Long> skillIds = employee.getSkillList()
+//                .stream()
+//                .map(skill -> skill.getId())
+//                .collect(Collectors.toList());
+//        employeeDto.setSkills(skillIds);
+//    }
 
 
 
         // method setSkillIds using stream for skill names
-//    private void setSkillIds(EmployeeDto employeeDto, Employee employee) {
-//        if (employee.getSkillList() != null) {
-//            List<String> skillNames = employee.getSkillList()
-//                    .stream()
-//                    .map(Skill::getName)
-//                    .collect(Collectors.toList());
-//            employeeDto.setSkills(skillNames);
-//        } else {
-//            employeeDto.setSkills(new ArrayList<>());
-//        }
-//    }
+    private void setSkillIds(EmployeeDto employeeDto, Employee employee) {
+        if (employee.getSkillList() != null) {
+            List<String> skillNames = employee.getSkillList()
+                    .stream()
+                    .map(Skill::getName)
+                    .collect(Collectors.toList());
+            employeeDto.setSkills(skillNames);
+        } else {
+            employeeDto.setSkills(new ArrayList<>());
+        }
+    }
     public EmployeeWithoutSkillsDto toEmployeeWithoutSkillsDto(Employee employee) {
         EmployeeWithoutSkillsDto employeeDto = new EmployeeWithoutSkillsDto();
         employeeDto.setId(employee.getId());
@@ -79,7 +80,6 @@ public class EmployeeMapperImpl implements EmployeeMapper {
         if (requestDto == null) {
             return null;
         }
-
         Employee employee = new Employee();
         employee.setName(requestDto.name());
         employee.setEmail(requestDto.email());
