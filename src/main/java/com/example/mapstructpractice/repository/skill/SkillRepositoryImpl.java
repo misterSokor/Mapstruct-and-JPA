@@ -72,19 +72,4 @@ public class SkillRepositoryImpl implements SkillRepository {
             throw new RuntimeException("Can't get all skills entities", e);
         }
     }
-
-
-//    public List<String> findSkillNamesById(List<Long> ids) {
-//        try (EntityManager entityManager =
-//                     entityManagerFactory.createEntityManager()) {
-//            return entityManager
-//                    .createQuery(
-//                            "SELECT s FROM Skill snames where id IN :idOfSkill ")
-//                    .setParameter("idOfSkill", ids)
-//                    .getResultList();
-//
-//        } catch (RuntimeException e) {
-//            throw new RuntimeException("Can't find corresponding names", e);
-//        }
-//    }
 }

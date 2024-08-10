@@ -53,8 +53,6 @@ public class EmployeeServiceImpl implements EmployeeService {
         // Generate random social security number
         employee.setSocialSecurityNumber("abc " + (new Random().nextInt(1000)));
 
-        //TODO: try to retrieve names of skills in the mapper
-
         // Fetch skills (for names) from repository before saving and transmit
         // it to the mapper
         List<Skill> skills = skillRepository.findAllById(requestDto.skills());

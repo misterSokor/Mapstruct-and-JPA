@@ -19,4 +19,15 @@ public interface DepartmentMapper {
                 .map(idValue -> new Department(idValue))
                 .orElse(null);
     }
+
+    // the same method without using Optional and lambda
+    /*
+        @Named("getById")
+    default Department getById(Long id) {
+        if (id != null) {
+            return new Department(id);
+        }
+        return null;
+    }
+     */
 }

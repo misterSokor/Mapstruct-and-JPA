@@ -9,6 +9,6 @@ public class EmployeeDto {
     private String name;
     private String email;
     private Long employeeDepartmentId;
-    List<String> skills; // for fetching skills names
-//    List<Long> skills; // for fetching skills ids
+//    List<String> skills; // for fetching skills names
+    List<Long> skills; // for fetching skills ids
 }
