@@ -10,7 +10,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.example</groupId>
-    <artifactId>MapStruct-practice</artifactId>
+    <artifactId>MapStruct-JPA</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>MapStruct-practice</name>
     <description>MapStruct-practice</description>
