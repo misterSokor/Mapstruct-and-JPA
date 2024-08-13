@@ -16,12 +16,10 @@ import org.springframework.stereotype.Component;
 // library, and this class works the same as EmployeeMapper with mapstruct
 
 
-//@Component
+@Component
 @RequiredArgsConstructor
 public class EmployeeMapperImpl implements EmployeeMapper {
     private final DepartmentMapper departmentMapper;
-    private final SkillRepository skillRepository;
-
 
     @Override
     public EmployeeDto toDto(Employee employee) {
@@ -42,13 +40,13 @@ public class EmployeeMapperImpl implements EmployeeMapper {
 
     // method setSkillIds using stream for Long id of skill with custom
     // mapper class
-//    private void setSkillIds(EmployeeDto employeeDto, Employee employee) {
-//        List<Long> skillIds = employee.getSkillList()
-//                .stream()
-//                .map(skill -> skill.getId())
-//                .collect(Collectors.toList());
-//        employeeDto.setSkills(skillIds);
-//    }
+    private void setSkillIds(EmployeeDto employeeDto, Employee employee) {
+        List<Long> skillIds = employee.getSkillList()
+                .stream()
+                .map(skill -> skill.getId())
+                .collect(Collectors.toList());
+        employeeDto.setSkills(skillIds);
+    }
 
 
         // method setSkillIds using stream for skill names
@@ -107,16 +105,16 @@ public class EmployeeMapperImpl implements EmployeeMapper {
     }
 
 //     method setAllSkills using stream for Long id of skill
-    private void setAllSkillNumbers(List<Long> skillIds, Employee employee) {
-        List<Skill> skills = skillIds
-                .stream()
-                .map(id -> new Skill(id))
-                .toList();
-        employee.setSkillList(skills);
-    }
+//    private void setAllSkillNumbers(List<Long> skillIds, Employee employee) {
+//        List<Skill> skills = skillIds
+//                .stream()
+//                .map(id -> new Skill(id))
+//                .toList();
+//        employee.setSkillList(skills);
+//    }
 
     // the same method setAllSkills without using stream and lambda
-    /*
+
         private void setAllSkillNumbers(List<Long> skillIds, Employee employee) {
         List<Skill> skills = new ArrayList<>();
         for (Long id : skillIds) {
@@ -125,8 +123,6 @@ public class EmployeeMapperImpl implements EmployeeMapper {
         }
         employee.setSkillList(skills);
     }
-     */
-
 }
 
 

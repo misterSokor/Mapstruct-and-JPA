@@ -17,6 +17,7 @@ public interface EmployeeMapper {
 
 package com.example.mapstructpractice.mapper;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 import com.example.mapstructpractice.config.MapperConfig;
@@ -30,21 +31,34 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.MappingTarget;
 
-@Mapper(config = MapperConfig.class, uses = DepartmentMapper.class)
+//@Mapper(config = MapperConfig.class, uses = DepartmentMapper.class)
 public interface EmployeeMapper {
     @Mapping(target = "employeeDepartmentId", source = "department.id")
     @Mapping(target = "skills", ignore = true)
     EmployeeDto toDto(Employee employee);
 
+//    @AfterMapping
+//    default void setSkillIds(
+//            @MappingTarget EmployeeDto employeeDto, Employee employee) {
+//        List<Long> skillIds = employee.getSkillList()
+//                .stream()
+//                .map(skill -> skill.getId())
+//                .collect(Collectors.toList());
+//        employeeDto.setSkills(skillIds);
+//    }
+    // the same method setSkillIds() using for loop
+    /*
     @AfterMapping
     default void setSkillIds(
             @MappingTarget EmployeeDto employeeDto, Employee employee) {
-        List<Long> skillIds = employee.getSkillList()
-                .stream()
-                .map(skill -> skill.getId())
-                .collect(Collectors.toList());
+        List<Long> skillIds = new ArrayList<>();
+        for (Skill skill : employee.getSkillList()) {
+            Long id = skill.getId();
+            skillIds.add(id);
+        }
         employeeDto.setSkills(skillIds);
     }
+    */
 
     EmployeeWithoutSkillsDto toEmployeeWithoutSkillsDto(Employee employee);
 
@@ -67,12 +81,6 @@ public interface EmployeeMapper {
 
 
 
-
-
-
-
-
-
 /*
 @Mapper(config = MapperConfig.class, uses = DepartmentMapper.class)
 public interface EmployeeMapper {
@@ -84,6 +92,4 @@ public interface EmployeeMapper {
             qualifiedByName = "departmentById")
     Employee toModel(CreateEmployeeRequestDto employeeDto);
 }
-
-
  */
